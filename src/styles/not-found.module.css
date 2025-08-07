@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f8f8f8;
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    font-size: 4rem;
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.button {
+    padding: 12px 24px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #555;
+}

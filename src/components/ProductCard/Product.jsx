@@ -1,42 +1,34 @@
 import React from 'react'
+import Image from 'next/image'
 import style from './ProductCard.module.css'
 
-export default function ProductCard({ Image, Title, Price, Description, Rating, Category }) {
+export default function ProductCard({ product }) {
     return (
-        <div className={style.productCard} data-category={Category}>
+        <div className={style.productCard} data-category={product.category}>
             <div className={style.productImage}>
-                {Image ? (
-                    <img
-                        src={Image}
-                        alt={Title}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }}
+                {product.image ? (
+                    <Image
+                        src={product.image}
+                        alt={product.title}
+                        width={300}
+                        height={200}
+                        className={style.productImageElement}
                     />
                 ) : (
-                    <div 
-                        style={{ 
-                            width: '100%', 
-                            height: '100%', 
-                            display: 'flex', 
-                            alignItems: 'center', 
-                            justifyContent: 'center', 
-                            backgroundColor: '#f0f0f0', 
-                            borderRadius: '4px',
-                            fontSize: '2rem'
-                        }}
-                    >
+                    <div className={style.imagePlaceholder}>
                         📱
                     </div>
                 )}
             </div>
-            <div className={style.productTitle}>{Title}</div>
-            <div className={style.productPrice}>{Price}</div>
-            <div className={style.productDescription}>{Description}</div>
+            <div className={style.productTitle}>{product.title}</div>
+            <div className={style.productPrice}>{product.price}</div>
+            <div className={style.productDescription}>{product.description}</div>
             <div className={style.productRating}>
                 <span className={style.stars}>
-                    {'⭐'.repeat(Rating?.stars || 0)}
+                    {'⭐'.repeat(product.rating?.stars || 0)}
                 </span>
                 <span>
-                    ({Rating?.count || 0}) - {Rating?.reviews || 0} avaliações
+                    ({product.rating?.count || 0}) - {product.rating?.reviews || 0} avaliações
                 </span>
             </div>
         </div>

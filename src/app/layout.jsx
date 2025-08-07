@@ -1,9 +1,10 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header/Header";
+import { ProductProvider } from "@/contexts/ProductContext";
+import HeaderWrapper from "@/components/Header/HeaderWrapper";
 
 // Configurar fonte local baixada
-const cormorantGaramond = localFont({
+const roboto = localFont({
     src: [
         {
             path: "../../public/fonts/Roboto-Regular.ttf",
@@ -16,16 +17,18 @@ const cormorantGaramond = localFont({
             style: "normal",
         },
     ],
-    variable: "--font-cormorant",
+    variable: "--font-roboto",
     display: "swap",
 });
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="pt-BR" className={cormorantGaramond.variable}>
-            <body className={cormorantGaramond.className}>
-              <Header />
-                <main>{children}</main>
+        <html lang="pt-BR" className={roboto.variable}>
+            <body className={roboto.className}>
+                <ProductProvider>
+                    <HeaderWrapper />
+                    <main>{children}</main>
+                </ProductProvider>
             </body>
         </html>
     );

@@ -4,4 +4,20 @@
     color: white;
     padding: 20px;
     margin-bottom: 30px;
-  }
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    border-radius: 8px;
+}
+
+.logoContainer h1 {
+    margin: 0;
+}
